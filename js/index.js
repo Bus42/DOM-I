@@ -48,7 +48,7 @@ logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
 // Selectors
 const nav = document.querySelector("nav");
-const navItems = nav.querySelectorAll("a");
+let navItems = nav.querySelectorAll("a");
 const navImg = document.querySelector("#logo-img");
 
 const cta = document.querySelector(".cta");
@@ -104,14 +104,25 @@ contactPs[2].textContent = siteContent.contact.email;
 footer.firstChild.textContent = siteContent.footer.copyright;
 
 // Adding new content
-for (let i = 0; i < navItems.length; i++) {
-  navItems[i].style.color = "green";
-}
 const newLink1 = document.createElement("a");
 newLink1.textContent = "Foo";
-newLink1.style.color = "green";
 nav.prepend(newLink1);
 const newLink2 = document.createElement("a");
 newLink2.textContent = "Bar";
-newLink2.style.color = "green";
 nav.appendChild(newLink2);
+
+
+// Stretch
+
+nav.style.display = "flex";
+nav.style.justifyContent = "flex-start";
+navItems = nav.querySelectorAll("a");
+for (let i = 0; i < navItems.length; i++) {
+  const style = navItems[i].style;
+  style.color = "white";
+  style.padding = "5px 8px";
+  style.margin = ".25rem";
+  style.backgroundColor = "#808000";
+  style.borderRadius = "8px";
+  style.textDecoration = "none";
+}
